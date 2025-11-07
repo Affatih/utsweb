@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - BukuKita</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="login-card">
+      <h1>Buku<span>Kita</span></h1>
+      <p class="subtitle">Masuk ke akun Anda</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <input type="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="btn-login">Login</button>
+      </form>
+
+      <div class="links">
+        <a href="#" id="forgotBtn">Lupa Password?</a>
+        <a href="#" id="registerBtn">Daftar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Modal Lupa Password ===== -->
+  <div id="forgotModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Lupa Password</h2>
+      <p>Masukkan email Anda untuk mengatur ulang password.</p>
+      <input type="email" placeholder="Email Anda" required>
+      <button class="btn-modal">Kirim</button>
+    </div>
+  </div>
+
+  <!-- ===== Modal Daftar ===== -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Daftar Akun Baru</h2>
+      <input type="text" placeholder="Nama Lengkap" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button class="btn-modal">Daftar Sekarang</button>
+    </div>
+  </div>
+
+  <script>
+    // ===== VALIDASI LOGIN =====
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      if (email === "admin@bukukita.com" && password === "123456") {
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Email atau password yang Anda masukkan salah!");
+      }
+    });
+
+    // ===== MODAL =====
+    const forgotModal = document.getElementById("forgotModal");
+    const registerModal = document.getElementById("registerModal");
+    const forgotBtn = document.getElementById("forgotBtn");
+    const registerBtn = document.getElementById("registerBtn");
+    const closeBtns = document.querySelectorAll(".close");
+
+    forgotBtn.onclick = () => forgotModal.style.display = "flex";
+    registerBtn.onclick = () => registerModal.style.display = "flex";
+    closeBtns.forEach(btn => btn.onclick = () => {
+      forgotModal.style.display = "none";
+      registerModal.style.display = "none";
+    });
+
+    window.onclick = (e) => {
+      if (e.target === forgotModal) forgotModal.style.display = "none";
+      if (e.target === registerModal) registerModal.style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

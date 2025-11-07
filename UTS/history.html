@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History - BukuKita</title>
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+<script src="skrip.js" defer></script>
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h2>📚 Menu</h2>
+    <p id="sidebarGreeting"></p>
+    <button class="close-btn" id="closeSidebar">&times;</button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="stock.html"><img src="Aset/ready-stock.png">Informasi Stok/Katalog</a>
+    <a href="tracking.html"><img src="Aset/delivery.png">Tracking Pengiriman</a>
+    <a href="checkout.html"><img src="Aset/bar-chart.png">Laporan Pemesanan</a>
+    <a href="history.html"><img src="Aset/history.png">History Transaksi</a>
+  </nav>
+</aside>
+
+<header class="dashboard-header">
+  <h1>Buku<span>Kita</span></h1>
+  <button id="menuBtn" class="menu-btn">☰</button>
+</header>
+
+<main class="dashboard-main db-page">
+  <h2>History Transaksi</h2>
+
+  <table class="db-table" id="historyTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nama Pemesan</th>
+        <th>Buku</th>
+        <th>Jumlah</th>
+        <th>Total</th>
+        <th>Tanggal</th>
+      </tr>
+    </thead>
+    <tbody id="historyTableBody"></tbody>
+  </table>
+</main>
+
+<footer class="footer-bar">© 2025 BukuKita — Dashboard Admin</footer>
+
+</body>
+</html>

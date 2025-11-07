@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - BukuKita</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+  <script src="skrip.js" defer></script>
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>📚 Menu</h2>
+      <p id="sidebarGreeting"></p>
+      <button class="close-btn" id="closeSidebar">&times;</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="stok.html">
+  <img src="Aset/ready-stock.png" alt="Stock">Informasi Stok/Katalog
+</a>
+<a href="tracking.html">
+  <img src="Aset/delivery.png" alt="Tracking">Tracking Pengiriman
+</a>
+<a href="checkout.html">
+  <img src="Aset/bar-chart.png" alt="Laporan">Laporan Pemesanan
+</a>
+<a href="history.html">
+  <img src="Aset/history.png" alt="History">History Transaksi
+</a>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ===== HEADER ===== -->
+  <header class="dashboard-header">
+    <h1>📚 Buku<span>Kita</span></h1>
+    <button id="menuBtn" class="menu-btn">☰</button>
+  </header>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-bar">
+    <p>© 2025 BukuKita — Dashboard Admin</p>
+  </footer>
+
+  <script>
+    // Sidebar Toggle
+    const sidebar = document.getElementById("sidebar");
+    const menuBtn = document.getElementById("menuBtn");
+    const closeSidebar = document.getElementById("closeSidebar");
+
+    function toggleSidebar() {
+      sidebar.classList.toggle("active");
+    }
+
+    menuBtn.addEventListener("click", toggleSidebar);
+    closeSidebar.addEventListener("click", toggleSidebar);
+
+    // Greeting Dinamis di sidebar
+    const sidebarGreeting = document.getElementById("sidebarGreeting");
+    const hours = new Date().getHours();
+    let greeting = "";
+
+    if (hours >= 5 && hours < 11) greeting = "Selamat Pagi 🌅";
+    else if (hours >= 11 && hours < 15) greeting = "Selamat Siang ☀️";
+    else if (hours >= 15 && hours < 18) greeting = "Selamat Sore 🌇";
+    else greeting = "Selamat Malam 🌙";
+
+    sidebarGreeting.textContent = `${greeting}, Admin BukuKita!`;
+  </script>
+
+</body>
+</html>
